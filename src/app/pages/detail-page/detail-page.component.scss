@@ -1,0 +1,30 @@
+.detail-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entity-image {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 20px auto;
+}
+
+.details-panel {
+  margin-top: 20px;
+}
+
+.header button {
+  background-color: #111;
+  color: #fff;
+}

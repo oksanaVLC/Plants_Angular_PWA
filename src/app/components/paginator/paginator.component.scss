@@ -1,0 +1,25 @@
+/* paginator.component.scss */
+
+/* Contenedor principal */
+.paginator-container {
+  margin-top: 20px;
+}
+
+/* Acceder a elementos internos de mat-paginator */
+::ng-deep mat-paginator {
+  background-color: transparent;
+}
+
+/* La barra y botones internos */
+::ng-deep mat-paginator .mat-mdc-paginator-outer-container,
+::ng-deep mat-paginator .mat-mdc-paginator-container {
+  background-color: transparent;
+}
+
+::ng-deep mat-paginator button.mat-mdc-icon-button {
+  background-color: transparent;
+}
+
+::ng-deep mat-paginator .mat-mdc-select-trigger {
+  background-color: transparent;
+}

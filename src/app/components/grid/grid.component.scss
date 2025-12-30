@@ -1,0 +1,51 @@
+/*table.mat-elevation-z8 {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+::ng-deep th.mat-mdc-header-cell {
+  background-color: #111 !important;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+  color: #fff;
+}
+
+::ng-deep td.mat-mdc-cell {
+  padding: 12px 16px;
+  transition: background 0.2s;
+}
+
+::ng-deep tr.mat-mdc-row:hover {
+  background-color: #c0e6c0;
+  cursor: pointer;
+}
+
+tr.mat-row:not(:last-child) td {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  th.mat-header-cell,
+  td.mat-cell {
+    padding: 8px 12px;
+  }
+}
+*/
+
+.full-width {
+  width: 100%;
+}
+
+.clickable-row {
+  cursor: pointer;
+
+  &:hover {
+    background-color: #c0e6c0;
+  }
+}
+
+table {
+  border-collapse: separate;
+}

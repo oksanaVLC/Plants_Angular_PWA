@@ -1,0 +1,17 @@
+<mat-card class="plant-card" [routerLink]="['/detail', plant.id]">
+  <div class="image-container">
+    <img
+      [src]="plant.image_url || 'https://via.placeholder.com/150'"
+      [alt]="plant.common_name || 'Planta'"
+    />
+  </div>
+
+  <mat-card-title>
+    {{ plant.common_name || "Sin nombre" }}
+  </mat-card-title>
+
+  <mat-card-content>
+    <p><strong>Familia:</strong> {{ plant.family }}</p>
+    <p><strong>ID:</strong> {{ plant.id }}</p>
+  </mat-card-content>
+</mat-card>

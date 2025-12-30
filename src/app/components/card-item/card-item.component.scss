@@ -1,0 +1,45 @@
+.plant-card {
+  width: 100%; /* ocupa todo el ancho de la columna */
+  background-color: #ecf5ec;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #c0e6c0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+  }
+}
+
+.image-container {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 8px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+mat-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+mat-card-content {
+  font-size: 0.9rem;
+  padding-bottom: 1rem;
+
+  p {
+    margin: 0.25rem 0;
+  }
+}

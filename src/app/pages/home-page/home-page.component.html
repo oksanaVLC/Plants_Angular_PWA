@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>Plantas</h1>
+
+  <!-- Botones de cambio de vista -->
+  <div class="view-switch">
+    <button
+      mat-icon-button
+      color="primary"
+      (click)="setView('cards')"
+      [class.active]="viewMode() === 'cards'"
+    >
+      <mat-icon>grid_view</mat-icon>
+    </button>
+
+    <button
+      mat-icon-button
+      color="accent"
+      (click)="setView('table')"
+      [class.active]="viewMode() === 'table'"
+    >
+      <mat-icon>view_list</mat-icon>
+    </button>
+  </div>
+
+  <!-- Spinner mientras carga -->
+  <app-loader [loading]="loading()"></app-loader>
+
+  <!-- ================= VISTA CARDS ================= -->
+  @if (!loading() && viewMode() === 'cards') {
+  <div class="cards-grid" [@listAnimation]>
+    @for (plant of currentCards; track plant.id) {
+    <card-item [plant]="plant" (click)="goToDetail(plant.id)"></card-item>
+    }
+  </div>
+
+  <app-paginator
+    [length]="plants().length"
+    [pageSize]="cardsPerPage"
+    [pageSizeOptions]="[5, 10, 20]"
+    (pageChanged)="onCardPageChange($event)"
+  ></app-paginator>
+  }
+
+  <!-- ================= VISTA TABLA ================= -->
+  @if (!loading() && viewMode() === 'table') {
+  <app-grid
+    [plants]="currentTableData"
+    (rowClick)="goToDetail($event)"
+  ></app-grid>
+
+  <app-paginator
+    [length]="plants().length"
+    [pageSize]="tablePageSize"
+    [pageSizeOptions]="[5, 10, 20]"
+    (pageChanged)="onTablePageChange($event)"
+  ></app-paginator>
+  }
+</div>

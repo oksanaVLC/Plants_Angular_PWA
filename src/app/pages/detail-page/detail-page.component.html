@@ -1,0 +1,48 @@
+<div class="detail-container">
+  <!-- Spinner mientras carga -->
+  <app-loader [loading]="loading"></app-loader>
+
+  <!-- Contenido de la planta -->
+  <div *ngIf="plant">
+    <div class="header">
+      <h2 class="plant-name">{{ plant.common_name }}</h2>
+      <button mat-icon-button routerLink="/">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+
+    <img
+      [src]="plant.image_url"
+      alt="{{ plant.common_name }}"
+      class="entity-image"
+    />
+
+    <mat-accordion class="details-panel">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>More information</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p>
+          <strong>Scientific Name:</strong>
+          {{ plant.scientific_name || "No info" }}
+        </p>
+        <p><strong>Family:</strong> {{ plant.family || "No info" }}</p>
+        <p><strong>Genus:</strong> {{ plant.genus || "No info" }}</p>
+        <p>
+          <strong>Bibliography:</strong> {{ plant.bibliography || "No info" }}
+        </p>
+        <p><strong>Year:</strong> {{ plant.year || "No info" }}</p>
+        <p *ngIf="plant.author"><strong>Author:</strong> {{ plant.author }}</p>
+        <p *ngIf="plant.status"><strong>Status:</strong> {{ plant.status }}</p>
+
+        <div *ngIf="plant.synonyms?.length">
+          <strong>Synonyms:</strong>
+          <ul>
+            <li *ngFor="let syn of plant.synonyms">{{ syn }}</li>
+          </ul>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
