@@ -17,12 +17,12 @@ export class PlantService {
   // Trae una página de plantas
   getPlantsPage(page: number, perPage: number = 100): Observable<Plant[]> {
     const params = new HttpParams()
-      .set('token', this.token)
+      .set('token', this.token) // NECESARIO en dev
       .set('page', page)
       .set('page_size', perPage);
 
     return this.http
-      .get<any>(this.apiBase, { params })
+      .get<any>(environment.apiBase, { params })
       .pipe(map((res) => res.data.map(this.transformPlant)));
   }
 
