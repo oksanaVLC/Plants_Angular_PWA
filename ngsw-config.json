@@ -30,7 +30,7 @@
   "dataGroups": [
     {
       "name": "plants-api",
-      "urls": ["https://trefle.io/api/v1/**"],
+      "urls": ["/.netlify/functions/plants*"],
       "cacheConfig": {
         "strategy": "freshness",
         "maxSize": 30,
