@@ -1,13 +1,15 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin, map } from 'rxjs';
+import { environment } from '../../environments/environment';
 import { Plant } from '../models/plant.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlantService {
-  private apiBase = '/api/plants';
+  private apiBase = environment.apiBase;
+
   private token = 'usr-uOK2w39NmRhn62eAC8BVJvCGfjazecKj6bf6HdD4sBU';
 
   constructor(private http: HttpClient) {}
