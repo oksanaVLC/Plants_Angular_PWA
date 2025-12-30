@@ -33,7 +33,7 @@
       "urls": ["/.netlify/functions/plants*"],
       "cacheConfig": {
         "strategy": "freshness",
-        "maxSize": 30,
+        "maxSize": 50,
         "maxAge": "1d",
         "timeout": "5s"
       }
