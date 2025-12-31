@@ -16,13 +16,15 @@ export class PlantService {
 
   // Trae una página de plantas
   getPlantsPage(page: number, perPage: number = 100): Observable<Plant[]> {
-    const params = new HttpParams()
-      .set('token', this.token) // NECESARIO en dev
-      .set('page', page)
-      .set('page_size', perPage);
+    let params = new HttpParams().set('page', page).set('page_size', perPage);
+
+    // Solo en dev necesitamos pasar token
+    if (!environment.production) {
+      params = params.set('token', this.token);
+    }
 
     return this.http
-      .get<any>(environment.apiBase, { params })
+      .get<any>(this.apiBase, { params })
       .pipe(map((res) => res.data.map(this.transformPlant)));
   }
 
