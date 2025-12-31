@@ -62,7 +62,7 @@ export class DetailPageComponent implements OnInit {
       author: item.author || '',
       status: item.status || '',
       synonyms: item.synonyms || [],
-      image_url: item.image_url || 'https://via.placeholder.com/150',
+      image_url: item.image_url || '/plant-placeholder.jpg',
       year: item.year,
     };
   }
