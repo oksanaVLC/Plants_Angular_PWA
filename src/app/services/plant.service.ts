@@ -40,10 +40,22 @@ export class PlantService {
     return forkJoin(requests).pipe(map((pages) => pages.flat()));
   }
 
+  // Trae una planta por ID
   getPlantById(id: string | number): Observable<Plant> {
+    let params: HttpParams | undefined;
+
+    if (!environment.production) {
+      params = new HttpParams().set('token', this.token);
+    }
+
     return this.http
-      .get<any>(`${this.apiBase}/${id}?token=${this.token}`)
-      .pipe(map((res) => this.transformPlant(res.data)));
+      .get<any>(
+        `${environment.apiBase}${
+          environment.production ? '?id=' + id : '/' + id
+        }`,
+        { params }
+      )
+      .pipe(map((res) => this.transformPlant(res.data || res)));
   }
 
   private transformPlant(item: any): Plant {
